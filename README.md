@@ -4,7 +4,7 @@ Scripts and data for the investigation of indel biases in bacterial genomes
 This is a collection of Python scripts used for the analysis of indel profiles in pseudogenes in: 
 "Patterns of nucleotide deletion and insertion inferred from bacterial pseudogenes", 2018, by Bram Danneels, Marta Pinto-Carbó and Aurélien Carlier
 
-Curated alignments discussed in the paper are saved under the curated-final.tar.gz archive
+Curated alignments discussed in the paper are saved under the Burkholderia_curated-final.tar.gz archive.
 
 The steps to replicate the analyses described in the manuscript are as follows:
 
