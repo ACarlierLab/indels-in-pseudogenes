@@ -50,3 +50,24 @@ The steps to replicate the analyses described in the manuscript are as follows:
     $ python indel_per_pseudo del_statistics_DR.txt
     
         Output: - indel_by_gene.txt: tab-delimited text file with 4 columns
+
+7. To perform bootstrapping analysis, first create separate files for deletions and insertions, containing overview tables of number of deletions of certain length. Each row should represent the size distribution for a given dataset (e.g. species, pooled data). Row- and columnames should be present. Values should be separated by tabs.
+	    $ python bootstrap_analysis.py [input table] [indel type (either 'Deletion' or 'Insertion')]
+	
+	    Output: - bootstrap.out: text file containing results of the bootstrapping analysis for each set (row) of data in 3 tab-separated columns:
+				    1. Indel size
+				    2. Mean (n=10000) of the differences between boostrapped values and power-law estimates
+				    3. 95 % confidence interval on the means
+				- [dataset]_[indeltype].png: png file with the size distribution of deletion/insertion of certain dataset, power-law fit, and bootstrapped values + 95% confidence interval
+
+8. To perform motif detection, execute the motif_search.py script in the folder containing the curated alignments in CLUSTAL format. Output is printed to STDOUT by default.
+	    $ python motif_search.py
+	
+	    Output: For every pseudogene (= alignemnt) the following will be displayed:
+				- Name of alignment file (flanked by 5 '=' characters)
+				- Part of the alignment containing the gap and 10 nt flanking sequence (if present), each deletion seperated by a line of '-' characters
+				- Forward motifs search results (Forward motif = motif where the start of the deleted sequence matches with he sequence right after the gap)
+				- Reverse motifs search results (Reverse motif = motif where the end of the deleted sequence matches with the sequence right before the gap)
+				The file is ended with overview statistics of detected deletions and motifs (# deletions, # small deletions, # forward motifs, # reverse motifs, # deletions with detected motif)
+				
+	
