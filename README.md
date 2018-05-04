@@ -12,7 +12,7 @@ The steps to replicate the analyses described in the manuscript are as follows:
 2. Run Pseudo_genome_align.py as follows:
     $ python Pseudo_genome_align.py genomes
     
-    The script extracts sequences of annotated pseudogenes and performs a blastx search on intergenic regions to extract unannotated pseudogenes. Candidate pseudogenes are aligned to the best blastx hit using tfasty v3.6 (Pearson, 2000) to verify the presence of at least one inactivating mutation (frameshift, early stop codon or truncation) affecting at least 20% of the gene.
+    The script extracts sequences of annotated pseudogenes and performs a blastx search on intergenic regions to extract unannotated pseudogenes. Candidate pseudogenes are aligned to the best blastx hit using tfasty v3.6 (Pearson, 2000) to verify the presence of at least one inactivating mutation (frameshift, early stop codon or truncation) affecting at least 20% of the reading frame as described in Carlier et al. 2014.
     Predicted proteins are extracted for each gene, including pseudogenes, and orthologs are computed using OrthoMCL v1.4 (Li et al. 2003). Pseudogenes as well as upstream and downstream flanking genes are extracted and aligned to syntenic functional orthologs from the two other reference genomes using MAFFT v7.2 with the E-INS-i algorithm with default parameters. Alignments are further sliced to remove upstream and downstream features, leaving only the alignment region containg the pseudogene and orthologous functional references. 
     
     Output: - alignment_whole: Directory containing MAFFT alignments including upstream and downstream anchor sequences. Alignments are saved in the Clustal format.
